@@ -47,7 +47,7 @@ export OMP_NUM_THREADS=1 # good practise to prevent any threaded system librarie
 TMPFILE=/tmp/${USER}-mpi.txt
 
 # loop over various number of MPI processes, copying timing output to $TIMING
-for PROCS in 1 2 3 4 8 12 16 32 64 96 128
+for PROCS in 1 2 3 4 5 7 8 12 13 16 32 64 80 96 126 127 128
 do
 echo Running $EXE in directory $PWD on $PROCS MPI processes
 srun --ntasks=${PROCS} --cpu-bind=verbose,rank ./${EXE} | tee ${TMPFILE}

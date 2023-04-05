@@ -4,7 +4,7 @@
 ## script to run $1 (within current "work" directory) as MPI
 ## sbatch can set:
 ##   "-N #nodes"     (saved as $SLURM_NNODES, for example)
-##   "-n #processes" (saved as $SLURM_NTASKS_PER_NODE)
+##   "-n #processes" (saved as $SLURM_NPROCS)
 ##
 ## batch system flags:
 #SBATCH -p standard --qos=short --account=ta094-mmuteach
@@ -32,11 +32,11 @@ fi
 ## determine from SLURM env vars how many MPI processes to run, one per core
 ## note that we can control this in a fine-grained manner should we wish
 ## but here we merely invoke 'srun' which usually knows best
-echo SLURM job has ${SLURM_NTASKS_PER_NODE} tasks per node and $SLURM_NNODES nodes
+echo SLURM job has ${SLURM_NPROCS} processes over $SLURM_NNODES nodes
 
 EXE=$1
 ls -l $EXE        # quick check as to what we about to run
 
-echo Running $EXE in directory $PWD via srun on $SLURM_NTASKS_PER_NODE \* $SLURM_NNODES MPI processes
+echo Running $EXE in directory $PWD via srun on $SLURM_NPROCS MPI processes over $SLURM_NNODES nodes
 export OMP_NUM_THREADS=1 # good practise to prevent any threaded system libraries spawning new threads
 srun ./${EXE}
