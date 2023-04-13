@@ -1,20 +1,7 @@
 #!/bin/bash
 ## (c) m.bane@mmu.ac.uk | alterations by 19096347@stu.mmu.ac.uk
-##
-## script to run $1 (within current "work" directory) as MPI
-## sbatch can set:
-##   "-N #nodes"     (saved as $SLURM_NNODES, for example)
-##   "-n #processes" (saved as $SLURM_NTASKS_PER_NODE)
-##
 ## batch system flags:
 #SBATCH -p standard --qos=short --account=ta094-mmuteach
-# max wallclock time (minutes)
-#SBATCH -t 2
-# number of cores & nodes
-#   -- set a default of 1 node on which we run up to 128 processes
-#SBATCH -N 1 -n 128
-
-## further info on sbatch options for ARCHER2: https://docs.archer2.ac.uk/user-guide/scheduler
 
 ## trap any errors and quit immediately
 trap 'echo error occurred on line $LINENO;exit -1' ERR
