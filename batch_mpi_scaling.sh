@@ -1,5 +1,5 @@
 #!/bin/bash
-## (c) m.bane@mmu.ac.uk
+## (c) m.bane@mmu.ac.uk | alterations by 19096347@stu.mmu.ac.uk
 ##
 ## script to run $1 (within current "work" directory) as MPI
 ## sbatch can set:
