@@ -46,5 +46,3 @@ done
 done
 
 cat $TIMING
-# use gnuplot to plot contents of $TIMING
-# explain your findings
