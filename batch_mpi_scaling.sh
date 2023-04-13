@@ -49,7 +49,7 @@ TMPFILE=/tmp/${USER}-mpi.txt
 # loop over various number of MPI processes, copying timing output to $TIMING
 for NODES in 1 2 3 4
 do
-for PROCS in 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128
+for PROCS in 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128
 do
 echo Running $EXE in directory $PWD on $PROCS MPI processes
 srun --nodes=${NODES} --ntasks=${PROCS} --cpu-bind=verbose,rank ./${EXE} | tee ${TMPFILE}
