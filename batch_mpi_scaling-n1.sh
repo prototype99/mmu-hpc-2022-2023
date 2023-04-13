@@ -2,6 +2,7 @@
 ## (c) m.bane@mmu.ac.uk | alterations by 19096347@stu.mmu.ac.uk
 ## batch system flags:
 #SBATCH -p standard --qos=short --account=ta094-mmuteach
+#SBATCH -N 1
 
 ## trap any errors and quit immediately
 trap 'echo error occurred on line $LINENO;exit -1' ERR
